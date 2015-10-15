@@ -12,6 +12,9 @@ import java.util.Map;
  */
 public abstract class Automata<S, A> {
     
+    /** The State representing the empty state. */
+    public static final String STATE_EMPTY = "\u2205";
+    
     /** The List<S> containing the automata states. */
     private final List<S> states;
     private final List<A> alphabet;
@@ -40,23 +43,23 @@ public abstract class Automata<S, A> {
         this.finalStates = finalStates;
     }
     /** @return the set of States */
-    public List<S> getStates() {
+    protected List<S> getStates() {
         return states;
     }
     /** @return the alphabet of this automata */
-    public List<A> getAlphabet() {
+    protected List<A> getAlphabet() {
         return alphabet;
     }
     /** @return the transition function for this automata */
-    public Map<Tuple<S, A>, S> getDelta() {
+    protected Map<Tuple<S, A>, S> getDelta() {
         return delta;
     }
     /** @return the start state */
-    public S getStartState() {
+    protected S getStartState() {
         return startState;
     }
     /** @return the set of accept states */
-    public List<S> getAcceptStates() {
+    protected List<S> getAcceptStates() {
         return finalStates;
     }
 

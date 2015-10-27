@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Represents a Non-Deterministic Finite Automata in memory. 
+ * Represents a Non-Deterministic Finite Automata in memory.
+ * 
+ * @author CASII
  */
 public class NondeterministicFiniteAutomata extends Automata<String, Character> {
     

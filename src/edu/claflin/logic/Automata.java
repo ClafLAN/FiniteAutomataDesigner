@@ -16,11 +16,11 @@ public abstract class Automata<S, A> {
     public static final String STATE_EMPTY = "\u2205";
     
     /** The List<S> containing the automata states. */
-    private final List<S> states;
-    private final List<A> alphabet;
-    private final Map<Tuple<S, A>, S> delta;
-    private S startState;
-    private final List<S> finalStates;
+    protected final List<S> states;
+    protected final List<A> alphabet;
+    protected final Map<Tuple<S, A>, List<S>> delta;
+    protected S startState;
+    protected final List<S> finalStates;
     
     /**
      * Constructs the Automata.
@@ -30,7 +30,7 @@ public abstract class Automata<S, A> {
      * @param startState the start state
      * @param finalStates the set of final states.
      */
-    public Automata(List<S> states, List<A> alphabet, Map<Tuple<S, A>, S> delta,
+    public Automata(List<S> states, List<A> alphabet, Map<Tuple<S, A>, List<S>> delta,
             S startState, List<S> finalStates) {
         if (states == null || alphabet == null || delta == null ||
                 startState == null || finalStates == null) {
@@ -43,24 +43,38 @@ public abstract class Automata<S, A> {
         this.finalStates = finalStates;
     }
     /** @return the set of States */
-    protected List<S> getStates() {
+    public List<S> getStates() {
         return states;
     }
     /** @return the alphabet of this automata */
-    protected List<A> getAlphabet() {
+    public List<A> getAlphabet() {
         return alphabet;
     }
     /** @return the transition function for this automata */
-    protected Map<Tuple<S, A>, S> getDelta() {
+    public Map<Tuple<S, A>, List<S>> getDelta() {
         return delta;
     }
     /** @return the start state */
-    protected S getStartState() {
+    public S getStartState() {
         return startState;
     }
     /** @return the set of accept states */
-    protected List<S> getAcceptStates() {
+    public List<S> getAcceptStates() {
         return finalStates;
+    }
+    
+    public boolean addState(S state) {
+        if (!states.contains(state)) {
+            states.add(state);
+            return true;
+        }
+        return false;
+    }
+    public boolean removeState(S state) {
+        if (!states.contains(state) || states.size() == 1) {
+            return false;
+            // XXX - Maybe a better alternative than just returning false?
+        }
     }
 
     /**

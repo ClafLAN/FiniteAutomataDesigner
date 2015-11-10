@@ -18,11 +18,14 @@ import java.util.Map;
  */
 public class DeterministicFiniteAutomata extends NondeterministicFiniteAutomata {
 
-    public DeterministicFiniteAutomata(List<String> states, List<Character> alphabet, Map<Tuple<String, Character>, String> delta, String startState, List<String> finalStates) {
+    public DeterministicFiniteAutomata(List<String> states, 
+            List<Character> alphabet, Map<Tuple<String, Character>, 
+                    List<String>> delta, String startState, List<String> finalStates) {
         super(states, alphabet, delta, startState, finalStates);
     }
     
-    public boolean isDeterministic() {
-        for 
+    @Override
+    public boolean validateTarget(List<String> target) {
+        return states.containsAll(target) && target.size() <= 1;
     }
 }

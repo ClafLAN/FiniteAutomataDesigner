@@ -27,7 +27,7 @@ public CSVAutomata readFile(File file) throws FileNotFoundException, IOException
     int value = 0;
     
     while((value = br.read()) !=1){
-        
+        // todo
     }
     return 0;
 }

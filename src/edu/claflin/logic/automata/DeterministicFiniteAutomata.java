@@ -1,4 +1,4 @@
-package edu.claflin.logic;
+package edu.claflin.logic.automata;
 
 import java.util.List;
 import java.util.Map;

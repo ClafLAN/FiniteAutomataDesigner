@@ -1,4 +1,4 @@
-package edu.claflin.logic;
+package edu.claflin.logic.automata;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
- * @author Charles Allen Schultz II
+ * Factory class for creating Automata objects.
+ * @author CASII
  */
 public final class Factory {
     

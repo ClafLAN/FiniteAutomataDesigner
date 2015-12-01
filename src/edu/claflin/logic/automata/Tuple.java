@@ -1,4 +1,4 @@
-package edu.claflin.logic;
+package edu.claflin.logic.automata;
 
 /**
  * Used to represent the Cartesian Product between types A and B.

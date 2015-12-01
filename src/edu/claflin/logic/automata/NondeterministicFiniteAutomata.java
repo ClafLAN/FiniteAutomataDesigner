@@ -1,4 +1,4 @@
-package edu.claflin.logic;
+package edu.claflin.logic.automata;
 
 import java.util.ArrayList;
 import java.util.List;
